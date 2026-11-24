@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The World in One Day — Monday 23 November 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 1024px; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f6f1e3; color: #1c1a16;
+    padding: 12px 14px 10px 14px;
+  }
+  .rule-thick { border-top: 3px solid #1c1a16; }
+  .rule-thin { border-top: 1px solid #1c1a16; margin-top: 2px; }
+
+  /* ---------- masthead ---------- */
+  .masthead { text-align: center; }
+  .masthead .over { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #6b5d43; }
+  .masthead h1 { font-size: 44px; line-height: 1.02; letter-spacing: 1px; font-weight: 900; }
+  .masthead h1 em { font-style: italic; font-weight: 700; }
+  .dateline { display: flex; justify-content: space-between; font-size: 11px; padding: 3px 2px 5px 2px; }
+  .dateline b { font-size: 12px; }
+  .dateline .mid { font-style: italic; }
+
+  /* ---------- lead card ---------- */
+  .lead {
+    display: flex; margin-top: 8px; background: #191713; color: #f6f1e3;
+    border: 2px solid #191713; padding: 10px 12px; gap: 12px; height: 148px;
+  }
+  .lead .txt { flex: 1 1 640px; }
+  .lead .kicker { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #e8b23a; font-family: Arial, sans-serif; font-weight: bold; }
+  .lead h2 { font-size: 25px; line-height: 1.12; margin: 5px 0 5px 0; font-weight: 900; }
+  .lead p { font-size: 11.5px; line-height: 1.35; color: #e6dfcd; }
+  .lead .tagrow { margin-top: 6px; display: flex; gap: 8px; align-items: center; font-family: Arial, sans-serif; }
+  .tag { font-size: 9px; font-weight: bold; letter-spacing: 1px; padding: 2px 6px; border-radius: 2px; font-family: Arial, sans-serif; }
+  .tag.confirmed { background: #2e7d32; color: #fff; }
+  .tag.claim { background: #b45309; color: #fff; }
+  .lead .src { font-size: 9.5px; color: #c9c0a8; font-style: italic; }
+  .lead .art { flex: 0 0 210px; }
+
+  /* ---------- card grid ---------- */
+  .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin-top: 8px; }
+  .card { border: 1.5px solid #1c1a16; background: #fffdf6; padding: 5px 6px 4px 6px; height: 132px; overflow: hidden; position: relative; }
+  .card .num {
+    position: absolute; top: 4px; left: 5px; width: 17px; height: 17px; border-radius: 50%;
+    background: #191713; color: #f6f1e3; font-size: 10px; font-weight: bold; text-align: center; line-height: 17px;
+    font-family: Arial, sans-serif;
+  }
+  .card .kick { font-size: 7.5px; letter-spacing: 0.6px; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; margin-left: 21px; line-height: 1.2; min-height: 18px; }
+  .card svg { display: block; margin: 2px auto 3px auto; }
+  .card h3 { font-size: 10.5px; line-height: 1.14; font-weight: 900; }
+  .card p { font-size: 8.6px; line-height: 1.25; margin-top: 2px; color: #3a352c; }
+  .card .foot { margin-top: 3px; display: flex; gap: 4px; align-items: center; }
+  .card .foot .src { font-size: 7.5px; font-style: italic; color: #6b5d43; }
+  .card .foot .tag { font-size: 7.5px; padding: 1px 4px; }
+
+  /* ---------- map + date check ---------- */
+  .midrow { display: flex; gap: 8px; margin-top: 8px; }
+  .mapbox { flex: 0 0 606px; border: 1.5px solid #1c1a16; background: #eef3ea; padding: 4px 6px 2px 6px; height: 148px; }
+  .mapbox .cap, .datebox .cap { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; }
+  .mapbox .legend { font-size: 8px; font-family: Arial, sans-serif; color: #3a352c; margin-top: 1px; }
+  .mapbox .legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin: 0 2px 0 8px; vertical-align: -1px; }
+  .datebox { flex: 1; border: 1.5px solid #8a2f2f; background: #fdf6f0; padding: 4px 8px; height: 148px; overflow: hidden; }
+  .datebox ul { list-style: none; margin-top: 3px; }
+  .datebox li { font-size: 8.8px; line-height: 1.32; padding-left: 10px; text-indent: -10px; }
+  .datebox li::before { content: "✕ "; color: #8a2f2f; font-weight: bold; }
+
+  /* ---------- briefs ---------- */
+  .briefs { margin-top: 8px; border-top: 3px solid #1c1a16; padding-top: 4px; }
+  .briefs .cap { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 3px; }
+  .briefgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px 14px; }
+  .brief { font-size: 9.2px; line-height: 1.28; padding-left: 24px; text-indent: -24px; }
+  .brief b { font-family: Arial, sans-serif; font-size: 8.6px; }
+  .brief i { color: #6b5d43; font-size: 8.4px; }
+
+  /* ---------- footer ---------- */
+  .footer { margin-top: 7px; border-top: 1px solid #1c1a16; padding-top: 4px; font-size: 8.8px; line-height: 1.35; color: #3a352c; text-align: center; }
+  .footer b { color: #1c1a16; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="over">The world in one day &nbsp;·&nbsp; one image &nbsp;·&nbsp; all of it true</div>
+  <h1>THE WORLD IN <em>One Day</em></h1>
+  <div class="rule-thick"></div><div class="rule-thin"></div>
+  <div class="dateline">
+    <span><b>Monday 23 November 2026</b></span>
+    <span class="mid">46 stories &middot; 7 regions &middot; every story happened or was first reported today</span>
+    <span>Price: free &middot; Vol. 23</span>
+  </div>
+  <div class="rule-thin"></div>
+</div>
+
+<!-- LEAD CARD 1 -->
+<div class="lead">
+  <div class="txt">
+    <div class="kicker">1 &nbsp;·&nbsp; North America &middot; Business / Tech</div>
+    <h2>Nvidia board reinstates Jensen Huang as CEO 11 days after his resignation; stock jumps 30%</h2>
+    <p>Unanimous vote, effective at once. The board says it heard from senior US government officials and is confident his return poses no national security risk; the independent investigation continues. Colette Kress returns to CFO only. NVDA leapt 33% in early trading, to about $167, after closing at $125.53 on Friday following seven straight down days. President Trump publicly praised the decision.</p>
+    <div class="tagrow"><span class="tag confirmed">CONFIRMED</span><span class="src">Sources: Reuters / Nvidia official announcement</span></div>
+  </div>
+  <div class="art">
+    <svg width="210" height="126" viewBox="0 0 210 126">
+      <rect x="6" y="18" width="96" height="66" rx="6" fill="#1f3a24" stroke="#e8b23a" stroke-width="2"/>
+      <rect x="20" y="32" width="68" height="38" rx="3" fill="#76b900"/>
+      <text x="54" y="56" font-family="Arial" font-size="13" font-weight="bold" fill="#191713" text-anchor="middle">NVIDIA</text>
+      <line x1="14" y1="51" x2="6" y2="51" stroke="#e8b23a" stroke-width="2"/><line x1="14" y1="66" x2="6" y2="66" stroke="#e8b23a" stroke-width="2"/>
+      <line x1="94" y1="51" x2="102" y2="51" stroke="#e8b23a" stroke-width="2"/><line x1="94" y1="66" x2="102" y2="66" stroke="#e8b23a" stroke-width="2"/>
+      <polyline points="118,96 146,66 162,78 196,34" fill="none" stroke="#76b900" stroke-width="4" stroke-linecap="round"/>
+      <polygon points="196,34 184,36 194,46" fill="#76b900"/>
+      <text x="105" y="118" font-family="Arial" font-size="12" font-weight="bold" fill="#e8b23a" text-anchor="middle">+33% &middot; $125.53 &rarr; $167</text>
+    </svg>
+  </div>
+</div>
+
+<!-- CARDS 2–15 -->
+<div class="grid">
+
+  <div class="card">
+    <span class="num">2</span>
+    <div class="kick" style="color:#0f766e">Global &middot; Climate</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><circle cx="30" cy="13" r="11" fill="#f59e0b"/><path d="M19 13 h22 M30 2 v22" stroke="#92400e" stroke-width="1.4" fill="none"/><path d="M22 8 q8 5 16 0" stroke="#92400e" stroke-width="1.2" fill="none"/></svg>
+    <h3>COP31 collapses in Antalya: no deal after record 2-day overtime</h3>
+    <p>190+ nations split on fossil fuels; draft drops them and a $120bn target.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">Reuters / UN</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">3</span>
+    <div class="kick" style="color:#b45309">Europe &middot; Conflict</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><path d="M8 18 h30 l6 -6 h8 l-4 6 h6" fill="#64748b"/><path d="M14 18 v-8 M38 12 l10 -8" stroke="#334155" stroke-width="1.6" fill="none"/><circle cx="52" cy="4" r="2.5" fill="#dc2626"/></svg>
+    <h3>Ukraine says 7 sea drones sank Russian corvette Merkury off Libya</h3>
+    <p>Zelenskyy calls it &ldquo;exemplary&rdquo;; Libya says badly damaged, sinking unconfirmed.</p>
+    <div class="foot"><span class="tag claim">CLAIM</span><span class="src">AP / Reuters</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">4</span>
+    <div class="kick" style="color:#b45309">Global &middot; Crypto</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><circle cx="30" cy="13" r="11" fill="#f7931a"/><text x="30" y="18" font-family="Arial" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle">₿</text><polyline points="44,20 50,10 56,14" fill="none" stroke="#15803d" stroke-width="2"/></svg>
+    <h3>Bitcoin rebounds above $61,000, up 12% from Saturday&rsquo;s 2-year low</h3>
+    <p>Weekend rout to ~$55,130 liquidated ~$3.75bn in longs.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">CoinDesk</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">5</span>
+    <div class="kick" style="color:#1d4ed8">N. America &middot; Markets</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><polyline points="4,22 16,14 26,17 38,7 56,3" fill="none" stroke="#15803d" stroke-width="2.4"/><polygon points="56,3 48,4 54,10" fill="#15803d"/><text x="30" y="25" font-family="Arial" font-size="8" font-weight="bold" fill="#15803d" text-anchor="middle">+$2tn</text></svg>
+    <h3>AI rally adds $2 trillion to Nasdaq-100; Nasdaq +6%, S&amp;P +4%</h3>
+    <p>Best Nasdaq-100 day since April 2025 (+6.6%); Nvidia adds back $900bn+.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">Reuters</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">6</span>
+    <div class="kick" style="color:#1d4ed8">N. America &middot; Tech / Law</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><rect x="18" y="4" width="24" height="18" rx="2" fill="#e7e5e4" stroke="#44403c" stroke-width="1.5"/><line x1="30" y1="4" x2="30" y2="22" stroke="#44403c" stroke-width="1.2"/><path d="M8 8 h8 M8 14 h8 M44 8 h8 M44 14 h8" stroke="#dc2626" stroke-width="2"/></svg>
+    <h3>Virginia and Oregon sue Musk&rsquo;s SpaceX over Grok&rsquo;s sexualised deepfakes</h3>
+    <p>First states to sue: &ldquo;spicy mode&rdquo; made sexual images, incl. 20,000+ of children.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">Reuters</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">7</span>
+    <div class="kick" style="color:#b45309">Europe &middot; Conflict</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><rect x="10" y="10" width="26" height="12" fill="#94a3b8"/><rect x="14" y="5" width="6" height="5" fill="#64748b"/><rect x="24" y="5" width="6" height="5" fill="#64748b"/><path d="M40 4 l4 8 -8 0 z" fill="#dc2626"/><path d="M44 12 q6 4 2 10" stroke="#dc2626" stroke-width="1.6" fill="none"/></svg>
+    <h3>Russian strikes kill 15 in Kyiv region, 11 in one apartment block</h3>
+    <p>Boy, 7, pulled alive in Dymer; Russia fired ~2,700 drones in a week, Kyiv says.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">AP / Al Jazeera</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">8</span>
+    <div class="kick" style="color:#0f766e">Asia-Pacific &middot; Disaster</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><path d="M30 3 q10 10 6 17 a8 8 0 0 1 -12 0 q-4 -7 6 -17z" fill="#ea580c"/><path d="M30 12 q5 5 3 8 a4 4 0 0 1 -6 0 q-2 -3 3 -8z" fill="#facc15"/></svg>
+    <h3>Indonesia confirms 24 dead in candy factory fire; ~30 still missing</h3>
+    <p>Fire gutted the PT Fonusa Agung Mulia plant; ~300 workers on site.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">Reuters</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">9</span>
+    <div class="kick" style="color:#0f766e">Global &middot; Sport</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><circle cx="30" cy="13" r="11" fill="#fff" stroke="#1c1a16" stroke-width="1.5"/><path d="M30 5 l4 6 -2 7 -4 -2 -4 2 -2 -7 z" fill="#1c1a16"/></svg>
+    <h3>FIFA names 2031 Women&rsquo;s World Cup hosts</h3>
+    <p>US, Mexico, Costa Rica, Jamaica host; first 48-team edition; UK gets 2035.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">FIFA / Reuters</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">10</span>
+    <div class="kick" style="color:#1d4ed8">N. America &middot; Sport</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><circle cx="30" cy="13" r="10" fill="#fff" stroke="#dc2626" stroke-width="1.5"/><path d="M24 4 q6 9 0 18 M36 4 q-6 9 0 18" stroke="#dc2626" stroke-width="1.2" fill="none"/></svg>
+    <h3>Mets sign Tarik Skubal for record $450 million — biggest pitching deal ever</h3>
+    <p>9 years, $45m bonus, full no-trade; tops Yamamoto&rsquo;s $325m.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">AP / Japan Times</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">11</span>
+    <div class="kick" style="color:#6d28d9">Europe &middot; Science</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><circle cx="18" cy="13" r="9" fill="#b45309"/><circle cx="44" cy="13" r="6" fill="#94a3b8"/><rect x="24" y="11" width="14" height="4" fill="#64748b"/><path d="M50 13 h8" stroke="#f59e0b" stroke-width="1.6"/></svg>
+    <h3>BepiColombo enters Mercury orbit after 8-year, 10-billion-km journey</h3>
+    <p>Only the 2nd mission to orbit Mercury; burn ran at 77%, craft safe.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">ESA / Reuters</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">12</span>
+    <div class="kick" style="color:#6d28d9">N. America &middot; Science</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><text x="30" y="12" font-family="Georgia" font-size="13" font-weight="bold" fill="#1c1a16" text-anchor="middle">ζ(s) = 0</text><text x="30" y="24" font-family="Arial" font-size="8" fill="#6b5d43" text-anchor="middle">17m lines of Lean</text></svg>
+    <h3>Anthropic mathematician claims AI helped prove the Riemann hypothesis</h3>
+    <p>A proof &ldquo;no human can read&rdquo;; Clay Institute still lists it unsolved.</p>
+    <div class="foot"><span class="tag claim">CLAIM</span><span class="src">Sci. American</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">13</span>
+    <div class="kick" style="color:#0f766e">Europe &middot; Health</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><rect x="10" y="6" width="26" height="14" rx="2" fill="#1c1a16"/><circle cx="23" cy="13" r="5" fill="#38bdf8"/><path d="M38 8 h14 M38 13 h10 M38 18 h14" stroke="#0f766e" stroke-width="2"/></svg>
+    <h3>NHS launches world&rsquo;s largest AI breast-screening trial: 700,000 women</h3>
+    <p>EDITH trial, £10m, 30 sites, 3 years; AI reads mammograms; starts in Cambridge.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">NHS / BBC</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">14</span>
+    <div class="kick" style="color:#b45309">Middle East &middot; Conflict</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><path d="M14 22 v-12 M14 10 h16 v12 M30 10 v-4 h6 v4" stroke="#334155" stroke-width="2" fill="none"/><path d="M44 6 l3 6 -6 0 z" fill="#dc2626"/><path d="M47 12 q5 3 2 8" stroke="#dc2626" stroke-width="1.4" fill="none"/></svg>
+    <h3>Houthis claim direct hit on Saudi Arabia&rsquo;s Rabigh oil refinery</h3>
+    <p>Riyadh silent, no damage confirmed; coalition downed a drone bound west.</p>
+    <div class="foot"><span class="tag claim">CLAIM</span><span class="src">Reuters / AFP</span></div>
+  </div>
+
+  <div class="card">
+    <span class="num">15</span>
+    <div class="kick" style="color:#0f766e">Global &middot; Tech Policy</div>
+    <svg width="60" height="26" viewBox="0 0 60 26"><circle cx="30" cy="13" r="10" fill="#38bdf8"/><path d="M20 13 h20 M30 3 v20" stroke="#0369a1" stroke-width="1.2" fill="none"/><circle cx="30" cy="13" r="3" fill="#0369a1"/></svg>
+    <h3>UN chief calls for global AI risk framework within a year</h3>
+    <p>Guterres: guardrails trail capabilities; framework needs independent oversight.</p>
+    <div class="foot"><span class="tag confirmed">CONFIRMED</span><span class="src">UN News / AP</span></div>
+  </div>
+
+</div>
+
+<!-- MAP + DATE CHECK -->
+<div class="midrow">
+  <div class="mapbox">
+    <div class="cap">The world today &mdash; where the 15 big stories happened</div>
+    <svg width="590" height="112" viewBox="0 0 600 118">
+      <g fill="#d9cfb2" stroke="#8a7f63" stroke-width="1">
+        <polygon points="60,18 90,12 130,14 150,22 170,20 185,30 175,45 150,48 130,55 105,50 80,42 60,30"/>
+        <polygon points="188,8 210,6 215,16 195,18"/>
+        <polygon points="200,55 225,52 245,60 240,85 225,100 210,80 200,65"/>
+        <polygon points="295,18 320,12 340,18 345,30 330,35 310,32 295,26"/>
+        <polygon points="300,42 330,40 355,48 360,70 345,92 325,88 305,65 295,50"/>
+        <polygon points="350,12 420,8 500,10 560,18 575,30 540,45 500,50 470,60 440,45 400,40 370,30 350,22"/>
+        <polygon points="490,82 540,80 555,90 520,98 495,92"/>
+        <polygon points="296,20 302,19 304,24 298,25"/>
+      </g>
+      <g font-family="Arial" font-size="7.5" font-weight="bold" text-anchor="middle">
+        <g><circle cx="100" cy="38" r="6.5" fill="#1d4ed8"/><text x="100" y="40.5" fill="#fff">1</text></g>
+        <g><circle cx="351" cy="35" r="6.5" fill="#0f766e"/><text x="351" y="37.5" fill="#fff">2</text></g>
+        <g><circle cx="334" cy="44" r="6.5" fill="#b45309"/><text x="334" y="46.5" fill="#fff">3</text></g>
+        <g><circle cx="473" cy="58" r="6.5" fill="#b45309"/><text x="473" y="60.5" fill="#fff">4</text></g>
+        <g><circle cx="170" cy="36" r="6.5" fill="#1d4ed8"/><text x="170" y="38.5" fill="#fff">5</text></g>
+        <g><circle cx="90" cy="27" r="6.5" fill="#1d4ed8"/><text x="90" y="29.5" fill="#fff">6</text></g>
+        <g><circle cx="358" cy="24" r="6.5" fill="#b45309"/><text x="358" y="26.5" fill="#fff">7</text></g>
+        <g><circle cx="477" cy="66" r="6.5" fill="#0f766e"/><text x="477" y="68.5" fill="#fff">8</text></g>
+        <g><circle cx="314" cy="30" r="6.5" fill="#0f766e"/><text x="314" y="32.5" fill="#fff">9</text></g>
+        <g><circle cx="184" cy="29" r="6.5" fill="#1d4ed8"/><text x="184" y="31.5" fill="#fff">10</text></g>
+        <g><circle cx="533" cy="36" r="6.5" fill="#6d28d9"/><text x="533" y="38.5" fill="#fff">11</text></g>
+        <g><circle cx="192" cy="38" r="6.5" fill="#6d28d9"/><text x="192" y="40.5" fill="#fff">12</text></g>
+        <g><circle cx="300" cy="23" r="6.5" fill="#0f766e"/><text x="300" y="25.5" fill="#fff">13</text></g>
+        <g><circle cx="365" cy="46" r="6.5" fill="#b45309"/><text x="365" y="48.5" fill="#fff">14</text></g>
+        <g><circle cx="201" cy="52" r="6.5" fill="#0f766e"/><text x="201" y="54.5" fill="#fff">15</text></g>
+      </g>
+    </svg>
+    <div class="legend"><i style="background:#1d4ed8"></i>N. America <i style="background:#b45309"></i>Europe / Mid-East <i style="background:#0f766e"></i>Asia-Pacific / Global <i style="background:#6d28d9"></i>Science</div>
+  </div>
+  <div class="datebox">
+    <div class="cap" style="color:#8a2f2f">Date check &mdash; deliberately left out (wrong date)</div>
+    <ul>
+      <li>Nvidia Q3 earnings beat; chair: no plan to reinstate Huang &mdash; 17 Nov</li>
+      <li>Anthropic IPO debut $83 &rarr; $97.17 close &mdash; 19 Nov</li>
+      <li>Riemann proof released (Lean code) &mdash; 20 Nov; only the follow-up is today</li>
+      <li>NVDA closes $125.53, 7th down day &mdash; 20 Nov</li>
+      <li>Indonesia factory fire breaks out &mdash; 21 Nov; toll confirmed today</li>
+      <li>BepiColombo orbit insertion &mdash; 21 Nov; safety confirmed Sun&ndash;Mon</li>
+      <li>COP31 collapse; Skubal deal; Libya attack; Khartoum strikes &mdash; 22 Nov, reported today</li>
+      <li>Kansas City Current win first NWSL title &mdash; 21 Nov</li>
+      <li>&ldquo;Russia nuclear space weapon&rdquo; report &mdash; 24 Nov, after cutoff</li>
+      <li>Daniel Jones clears waivers &mdash; 24 Nov, after cutoff</li>
+    </ul>
+  </div>
+</div>
+
+<!-- BRIEFS 16–46 -->
+<div class="briefs">
+  <div class="cap">The rest of the day &mdash; 31 more stories, in brief</div>
+  <div class="briefgrid">
+    <div class="brief"><b>16</b> Democrats clinch &ge;258 US House seats &mdash; largest majority since 1992 &mdash; after Hubbard beats Foxx by 330 votes. <i>AP; called Sun 22 Nov</i></div>
+    <div class="brief"><b>17</b> Drones hit homes and a UN building in Khartoum; 4 killed, ~10 hurt; army blames Ethiopia-launched drones &mdash; Ethiopia denies. <i>AFP</i></div>
+    <div class="brief"><b>18</b> Euro area inflation rises to 4.0%, Eurostat figures show, alongside GDP, unemployment and trade data. <i>Eurostat</i></div>
+    <div class="brief"><b>19</b> 49ers rout Vikings 35&ndash;10 in Mexico City as Brock Purdy throws 3 TD passes; San Francisco improves to 9&ndash;1. <i>NFL</i></div>
+    <div class="brief"><b>20</b> Victor Wembanyama drops 50 points, 18 rebounds, 5 blocks and 4 steals &mdash; his 2nd 50-point game &mdash; as Spurs beat Pelicans.</div>
+    <div class="brief"><b>21</b> Cowboys rout Titans 51&ndash;30 as Dak Prescott throws 4 TDs; Bills beat Dolphins 26&ndash;9, win streak reaches 6. <i>NFL Week 11</i></div>
+    <div class="brief"><b>22</b> India and Nepal sign 8 MoUs from space to security as Modi hosts Nepal PM Balen Shah in New Delhi. <i>ANI</i></div>
+    <div class="brief"><b>23</b> China sets 2030 targets to boost support for older people and childcare. <i>Japan Times</i></div>
+    <div class="brief"><b>24</b> South Korea nominates new foreign and unification ministers. <i>Japan Times</i></div>
+    <div class="brief"><b>25</b> Thailand plans to ban exports of chemicals as it tackles pollution. <i>Japan Times</i></div>
+    <div class="brief"><b>26</b> France arrests 144 in latest cost-of-living protests, interior ministry says, in a 6th weekend of rallies. <i>AFP</i></div>
+    <div class="brief"><b>27</b> Flights grounded in Belgium due to strike against austerity measures. <i>BBC</i></div>
+    <div class="brief"><b>28</b> Restored main hall of Okinawa&rsquo;s Shuri Castle opens to the public. <i>Japan Times</i></div>
+    <div class="brief"><b>29</b> Japan&rsquo;s Tamagotchi digital pet toy marks 30th anniversary. <i>Japan Times</i></div>
+    <div class="brief"><b>30</b> Tom Jackson, former Broncos star linebacker and ESPN broadcaster, dies at 75. <i>Japan Times</i></div>
+    <div class="brief"><b>31</b> Saudi-led coalition says it intercepted and destroyed a Houthi drone launched toward western Saudi Arabia. <i>Reuters</i></div>
+    <div class="brief"><b>32</b> UN mission in Libya urges an immediate, independent probe into the Benghazi port attacks. <i>UN News</i></div>
+    <div class="brief"><b>33</b> Heavy fighting in Ituri disrupts DR Congo Ebola response, WHO says. <i>UN News</i></div>
+    <div class="brief"><b>34</b> Bangladesh vows to arrest ex-PM Sheikh Hasina if she returns from India, minister says. <i>Reuters</i></div>
+    <div class="brief"><b>35</b> Zimbabwean pastor Uebert Angel arrested over sexual assault allegations; police say arrest was 22 Nov. <i>Daily Mirror</i></div>
+    <div class="brief"><b>36</b> China and ASEAN countries struggle over a South China Sea code of conduct. <i>Daily Mirror</i></div>
+    <div class="brief"><b>37</b> Aber Kawas becomes first Palestinian in New York State Senate history. <i>Daily Mirror</i></div>
+    <div class="brief"><b>38</b> Trump postpones US Army plan to detonate toxic explosives in Iowa. <i>Washington Post</i></div>
+    <div class="brief"><b>39</b> Ousted Democratic House member to resign following sexual misconduct findings. <i>Washington Post</i></div>
+    <div class="brief"><b>40</b> Democrats plan 12 debates for their 2028 presidential primary, the first in June. <i>The True Story</i></div>
+    <div class="brief"><b>41</b> NATO vows space defence after report that Russia may launch a nuclear space weapon next month. <i>Japan Times</i></div>
+    <div class="brief"><b>42</b> Thousands flee Manchester concert after unknown substance released. <i>The True Story</i></div>
+    <div class="brief"><b>43</b> Iran vows &ldquo;every means&rdquo; to counter US blockade of Hormuz after Trump threat; IRGC says 3 tankers hit mines &mdash; <b>CLAIM</b>, Press TV only. <i>Times of Israel</i></div>
+    <div class="brief"><b>44</b> Spot bitcoin ETFs lost ~$1.79bn last week &mdash; 4th straight week of outflows; November outflows reach ~$4.14bn. <i>CoinDesk</i></div>
+    <div class="brief"><b>45</b> Strategy bought another 457 BTC for $29.6m as treasuries bought the sub-$60,000 dip. <i>Weiss Ratings</i></div>
+    <div class="brief"><b>46</b> Japanese and North Korean intel officials likely had contact during Asian Games. <i>Japan Times</i></div>
+  </div>
+</div>
+
+<div class="footer">
+  <b>Every story here happened or was first reported on 23 November 2026.</b> Sources: AP, Reuters, AFP, Al Jazeera, BBC, FIFA, ESA, NHS, UN, CoinDesk, Japan Times. Original drawings. Claims are labelled CLAIM; verified facts are labelled CONFIRMED.
+</div>
+
+</body>
+</html>
